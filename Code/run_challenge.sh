@@ -1,1 +1,0 @@
-python run.py --TASK task1 --USE_PRESET True
