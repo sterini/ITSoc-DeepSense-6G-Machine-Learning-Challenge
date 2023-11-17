@@ -3,7 +3,7 @@
 
 - unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
-- This code was tested on Python 3.10.0 and torch version 2.1.0+cu118
+- This program was tested on Python 3.10.0 and torch version 2.1.0+cu118
 
 - use `pip install requirements.txt` to install all necessary packages!
 
@@ -14,7 +14,7 @@
    2. e.g: `run_main.sh`
    3. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
 
-- For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
+- For option number iii. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
 - Other available arguments:
 ```
@@ -48,5 +48,5 @@ parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to sh
    - Quick steps: https://ibb.co/ScCY1Kn
    - Detailed guide: https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05
 
-### The error can occur during data loading
+### The error can occur during data loading:
 - Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu)
