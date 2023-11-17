@@ -28,7 +28,6 @@ def get_user_input():
     print('\n\n')
     return file_name, sender_email, receiver_email, sender_password
 
-# Generate text for email
 def gen_text(args, avg_mse):
     data = ""
     if args.CAMERAS:
@@ -48,7 +47,7 @@ def send_email(text, sender, receiver, sender_password, f):
     message = MIMEMultipart()
     message["From"] = sender
     message["To"] = receiver
-    message["Subject"] = "Model Performance Plot"
+    message["Subject"] = "Model Pefromance Plot"
     
     attachment = MIMEApplication(open(f, "rb").read(), _subtype="html")
     attachment.add_header("Content-Disposition", f"attachment; filename={f}")
@@ -70,7 +69,7 @@ def send_email(text, sender, receiver, sender_password, f):
 # Function that call send_email function, it also creates an html file that saves to your current repository
 def send2email(args, fig, avg_mse, sender, receiver, sender_password, f):
     print('Generated .html file was saved to your current repository!')
-    plotly.io.write_html(fig, f'{f}.html')
+    plotly.io.write_html(fig, f'{f}')
     text = gen_text(args, avg_mse)
     send_email(text, sender, receiver, sender_password, f)
 
