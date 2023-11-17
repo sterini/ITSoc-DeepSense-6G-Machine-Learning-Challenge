@@ -20,6 +20,7 @@ Other available arguments:
 ```
 # Parse input arguments
 parser = argparse.ArgumentParser(description='Deepverse Challenge', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
 # Task specific arguments
 parser.add_argument('--TASK',type=str, default='task1', help='task name')
 parser.add_argument('--GPS', type=bool, default=True, help='GPS')
