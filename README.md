@@ -1,3 +1,6 @@
+Download dataset
+https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
+
 run a code using
 1. `run_main.sh`
 2. `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True`
