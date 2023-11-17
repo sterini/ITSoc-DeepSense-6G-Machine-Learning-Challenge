@@ -3,7 +3,7 @@ Link to download dataset: https://ieee-dataport.org/competitions/deepverse-6g-ma
 
 unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
-This code was tested on Python 3.10.0
+This code was tested on Python 3.10.0 and `torch` version 2.1.0+cu118
 
 use `pip install requirements.txt` to install all necessary packages!
 
@@ -15,7 +15,7 @@ run a code using
    
 For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
-# Possible Error
+# Possible Errors
 The email sending encountered an issue, and potential errors include:
 - Incorrect email address or password entry.
 - Ensure you are using an application-specific password instead of your standard email account password.
@@ -23,3 +23,5 @@ The email sending encountered an issue, and potential errors include:
 For guidance on generating application-specific passwords, refer to the following resources:
 - Quick steps: https://ibb.co/ScCY1Kn
 - Detailed guide: https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05
+
+The error can occur during data loading! Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu). 
