@@ -35,6 +35,8 @@ parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to sh
 args = parser.parse_args()
 
 def main(args):
+    if args.SHARE:
+        f, sender, receiver, sender_password = get_user_input()
     # Task 1
     if args.TASK == 'task1':
         train_losses,val_losses,avg_mse = task1_train(args)
@@ -54,7 +56,6 @@ def main(args):
     
     if args.SHARE:
         try:
-            f, sender, receiver, sender_password = get_user_input()
             send2email(args, fig, avg_mse, sender, receiver, sender_password, f)
         
         except:
