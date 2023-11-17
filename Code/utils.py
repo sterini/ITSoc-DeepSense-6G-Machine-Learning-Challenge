@@ -48,7 +48,7 @@ def send_email(text, sender, receiver, sender_password, f):
     message = MIMEMultipart()
     message["From"] = sender
     message["To"] = receiver
-    message["Subject"] = "Model Pefromance Code"
+    message["Subject"] = "Model Performance Plot"
     
     attachment = MIMEApplication(open(f, "rb").read(), _subtype="html")
     attachment.add_header("Content-Disposition", f"attachment; filename={f}")
