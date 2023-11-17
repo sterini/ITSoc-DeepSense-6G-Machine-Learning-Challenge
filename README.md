@@ -7,7 +7,7 @@ This code was tested on Python 3.10.0
 
 use `pip install requirements.txt` to install all necessary packages!
 
-Note! You should install *pytorch* on your own. Visit this link: https://pytorch.org/get-started/locally/
+Note! You should install **PYTORCH** on your own. Visit this link: https://pytorch.org/get-started/locally/
 
 run a code using
 1. `run_main.sh`
