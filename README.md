@@ -3,6 +3,9 @@ https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
 
 unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
+This code was tested on Python 3.10.0
+use `pip install requirements.txt` to install all necessary packages!
+
 run a code using
 1. `run_main.sh`
 2. `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True`
