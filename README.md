@@ -10,8 +10,9 @@ use `pip install requirements.txt` to install all necessary packages!
 Note! You should install **PYTORCH** on your own. Visit this link: https://pytorch.org/get-started/locally/
 
 run a code using
-1. `run_main.sh`
-2. `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True`
+1. If you want to share results via email. First and foremost, learn how to generate a gmail account password in section **Possible Errors**
+2. `run_main.sh`
+3. `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True`
    
 For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
