@@ -16,12 +16,12 @@ run a code using
 For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
 # Possible Errors
-The email sending encountered an issue, and potential errors include:
+*The email sending encountered an issue, and potential errors include*:
 - Incorrect email address or password entry.
 - Ensure you are using an application-specific password instead of your standard email account password.
 
-For guidance on generating application-specific passwords, refer to the following resources:
+*For guidance on generating application-specific passwords, refer to the following resources*:
 - Quick steps: https://ibb.co/ScCY1Kn
 - Detailed guide: https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05
 
-The error can occur during data loading! Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu). 
+*The error can occur during data loading! Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu)*
