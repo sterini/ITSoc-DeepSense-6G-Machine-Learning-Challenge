@@ -1,5 +1,5 @@
 # How-to
-Link to download dataset: https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
+Link to download a dataset: https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
 
 unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
