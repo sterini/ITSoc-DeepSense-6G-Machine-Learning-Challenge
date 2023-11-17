@@ -42,10 +42,11 @@ parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to sh
 ```
 
 # Possible Errors
-*The email sending encountered an issue, and potential errors include*:
+### The email sending encountered an issue, and potential errors include:
 - Incorrect email address or password entry.
 - Ensure you are using an application-specific password instead of your standard email account password.
    - Quick steps: https://ibb.co/ScCY1Kn
    - Detailed guide: https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05
 
-*The error can occur during data loading! Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu)*
+### The error can occur during data loading
+- Your local machine should have sufficient amount of RAM memory (in my case the program uses 55GB of RAM, I use linux ubuntu)
