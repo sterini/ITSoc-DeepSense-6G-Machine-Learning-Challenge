@@ -1,6 +1,6 @@
 run a code using
 1. `run_main.sh`
-2. python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True
+2. `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True`
    
 For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
