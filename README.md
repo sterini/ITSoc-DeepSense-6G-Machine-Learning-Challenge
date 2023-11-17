@@ -1,22 +1,22 @@
 # How-to
-Link to download a dataset: https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
+- Link to download a dataset: https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
 
-unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
+- unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
-This code was tested on Python 3.10.0 and torch version 2.1.0+cu118
+- This code was tested on Python 3.10.0 and torch version 2.1.0+cu118
 
-use `pip install requirements.txt` to install all necessary packages!
+- use `pip install requirements.txt` to install all necessary packages!
 
-Note! You should install **PYTORCH** on your own. Visit this link: https://pytorch.org/get-started/locally/
+- Note! You should install **PYTORCH** on your own. Visit this link: https://pytorch.org/get-started/locally/
 
-run a code using
-1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in section **Possible Errors**
-2. e.g: `run_main.sh`
-3. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
+- run a code using
+   1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in section **Possible Errors**
+   2. e.g: `run_main.sh`
+   3. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
 
-For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
+- For option number 2. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
-Other available arguments:
+- Other available arguments:
 ```
 # Parse input arguments
 parser = argparse.ArgumentParser(description='Deepverse Challenge', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
