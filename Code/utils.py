@@ -1,7 +1,102 @@
 import torch
 import torchvision.transforms as T
 from torch.optim.lr_scheduler import _LRScheduler
+import math
 
+import plotly
+import plotly.graph_objects as go
+
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+
+# Get user input
+def get_user_input():
+    print('Please enter information below:')
+    # Ask for file name
+    file_name = input("Enter the name of the .html file that sender will send (plot.html): ")
+
+    # Ask for sender email
+    sender_email = input("Enter sender email address (sender@gmail.com): ")
+
+    # Ask for receiver email
+    receiver_email = input("Enter the recipient's email address (receiver@gmail.com): ")
+
+    # Ask for sender password
+    sender_password = input("Enter sender email password (secrete): ")
+    print('\n\n')
+    return file_name, sender_email, receiver_email, sender_password
+
+# Generate text for email
+def gen_text(args, avg_mse):
+    data = ""
+    if args.CAMERAS:
+        data += "(Images)"
+    if args.RADAR:
+        data += "(Radar)"
+    if args.GPS:
+        data += "(GPS)"
+    text = 'The email is dispatched upon the successful completion of training a model!\n'
+    text += 'The email includes an attached document showcasing the performance of the model, specifically highlighting the training and validation losses.\n'
+    text += f'The model was trained on {data}, and it achieved an average Mean Squared Error (MSE) loss of {avg_mse}.\n'
+    text += 'Kindly download and open the attached HTML file to review the performance of the model.'
+    return text
+
+# Function that sends and email
+def send_email(text, sender, receiver, sender_password, f):
+    message = MIMEMultipart()
+    message["From"] = sender
+    message["To"] = receiver
+    message["Subject"] = "Model Pefromance Code"
+    
+    attachment = MIMEApplication(open(f, "rb").read(), _subtype="html")
+    attachment.add_header("Content-Disposition", f"attachment; filename={f}")
+    
+    message.attach(attachment)
+    
+    text_message = text
+    message.attach(MIMEText(text_message, "plain"))
+
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.ehlo()
+        server.starttls()
+        server.login(sender, sender_password)
+
+        # Send the email
+        server.sendmail(sender, receiver, message.as_string())
+    print("Email sent successfully.")
+
+# Function that call send_email function, it also creates an html file that saves to your current repository
+def send2email(args, fig, avg_mse, sender, receiver, sender_password, f):
+    print('Generated .html file was saved to your current repository!')
+    plotly.io.write_html(fig, f'{f}.html')
+    text = gen_text(args, avg_mse)
+    send_email(text, sender, receiver, sender_password, f)
+
+# Function that generates plot, displays train and validation losses
+def gen_plot(args, train_losses, val_losses):
+    # Plotting
+    train_loss = go.Scatter(y=train_losses, name = 'train loss')
+    val_loss = go.Scatter(y=val_losses, name = 'validation loss')
+
+    # Create a Plotly figure
+    fig = go.Figure(data=[train_loss, val_loss])
+
+    title = 'Model Performance on Data of'
+    if args.CAMERAS:
+        title += " (Images)"
+    if args.RADAR:
+        title += " (Radar)"
+    if args.GPS:
+        title += " (GPS)"
+
+    fig.update_layout(
+        title=title,
+        xaxis_title='Epochs',
+        yaxis_title='Loss'
+    )
+    return fig
 
 # Function to calculate model parameters
 def cal_model_parameters(model):
