@@ -13,12 +13,13 @@ warnings.filterwarnings("ignore", category=UserWarning)
 
 # Parse input arguments
 parser = argparse.ArgumentParser(description='Deepverse Challenge', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
 # Task specific arguments
 parser.add_argument('--TASK',type=str, default='task1', help='task name')
-parser.add_argument('--GPS', type=bool, default=True, help='GPS')
-parser.add_argument('--CAMERAS', type=bool, default=True, help='CAMERAS')
-parser.add_argument('--RADAR', type=bool, default=True, help='RADAR')
-parser.add_argument('--USE_PRESET', type=bool, default=False, help='USE_PRESET')
+parser.add_argument('--GPS', type=str2bool, default=True, help='GPS')
+parser.add_argument('--CAMERAS', type=str2bool, default=True, help='CAMERAS')
+parser.add_argument('--RADAR', type=str2bool, default=True, help='RADAR')
+parser.add_argument('--USE_PRESET', type=str2bool, default=False, help='USE_PRESET')
 
 # Training arguments
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
@@ -30,7 +31,7 @@ parser.add_argument('--batch_size', type=int, default=200, help='batch size')
 parser.add_argument('--accumulation_steps', type=int, default=20, help='accumulation steps')
 
 # Arguments related to sharing via email
-parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to share results via email [True\False]')
+parser.add_argument('--SHARE', type=str2bool, default=False, help='Do you want to share results via email [True/False]')
 
 args = parser.parse_args()
 
@@ -55,9 +56,9 @@ def main(args):
     fig = gen_plot(args, train_losses, val_losses)
     
     if args.SHARE:
-        try:
-            send2email(args, fig, avg_mse, sender, receiver, sender_password, f)
-        
+        #try:
+        send2email(args, fig, avg_mse, sender, receiver, sender_password, f)
+        '''
         except:
             print('Email was not sent!\nPossible error could be:')
             print('\t-You have typed a wrong email!')
@@ -65,6 +66,7 @@ def main(args):
             print('NOTE! That the password that should be used is not your standard email account password!')
             print('Visit this link to learn more about password:\nquick steps --> https://ibb.co/ScCY1Kn\nif you want to learn more --> https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05')
             sys.exit(0)
+            '''
     else:
         print(f'Average MSE: {avg_mse}')
         

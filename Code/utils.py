@@ -11,21 +11,29 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 
+def str2bool(x):
+    x = x.lower()
+    if x == 'true':
+        return True
+    if x == 'false':
+        return False
+    raise typeError('Wrong input!')
+
 # Get user input
 def get_user_input():
-    print('Please enter information below:')
+    print('\nPlease enter information below:')
     # Ask for file name
     file_name = input("Enter the name of the .html file that sender will send (plot.html): ")
-
+    print()
     # Ask for sender email
     sender_email = input("Enter sender email address (sender@gmail.com): ")
-
+    print()
     # Ask for receiver email
-    receiver_email = input("Enter the recipient's email address (receiver@gmail.com): ")
-
+    receiver_email = input("Enter the recipient's email address (receiver@gmail.com):")
+    print()
     # Ask for sender password
     sender_password = input("Enter sender email password (secrete): ")
-    print('\n\n')
+    print('\n')
     return file_name, sender_email, receiver_email, sender_password
 
 def gen_text(args, avg_mse):
@@ -36,7 +44,7 @@ def gen_text(args, avg_mse):
         data += "(Radar)"
     if args.GPS:
         data += "(GPS)"
-    text = 'The email is dispatched upon the successful completion of training a model!\n'
+    text = f'The email is dispatched upon the successful completion of training a model for {args.TASK}!\n'
     text += 'The email includes an attached document showcasing the performance of the model, specifically highlighting the training and validation losses.\n'
     text += f'The model was trained on {data}, and it achieved an average Mean Squared Error (MSE) loss of {avg_mse}.\n'
     text += 'Kindly download and open the attached HTML file to review the performance of the model.'
