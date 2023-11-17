@@ -3,7 +3,7 @@ Link to download a dataset: https://ieee-dataport.org/competitions/deepverse-6g-
 
 unzip .zip folder and move `wireless` `RBG_images` `radar` folders and `dataset_train.csv` `dataset_test.csv` `dataset.csv` files to the same directory that contains python files from this repository! 
 
-This code was tested on Python 3.10.0 and `torch` version 2.1.0+cu118
+This code was tested on Python 3.10.0 and torch version 2.1.0+cu118
 
 use `pip install requirements.txt` to install all necessary packages!
 
