@@ -41,6 +41,14 @@ parser.add_argument('--accumulation_steps', type=int, default=20, help='accumula
 parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to share results via email [True\False]')
 ```
 
+# Push Results
+- Make sure to save all your pre-trained models into a folder "models"
+- Make sure to save all your produced results into a folder "Results"
+- Install Git LFS, because models vary in size and might be very heavy we implement Git LFS
+    - https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
+    - https://git-lfs.com/
+- After you successfully installed Git LFS, run `gitpush.sh`, it will push both "models" and "Results" folders into a github repo :)
+
 # Possible Errors
 ### The email sending encountered an issue, and potential errors include:
 - Incorrect email address or password entry.
