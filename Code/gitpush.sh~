@@ -1,4 +1,0 @@
-git lfs track models
-git add models
-git commit -m "adding models"
-git push
