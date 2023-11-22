@@ -22,9 +22,11 @@ def str2bool(x):
 # Get user input
 def get_user_input():
     print('\nPlease enter information below:')
-    # Ask for file name
-    file_name = input("Enter the name of the .html file that sender will send (plot.html): ")
-    print()
+
+    # # Ask for file name
+    # file_name = input("Enter the name of the .html file that sender will send (plot.html): ")
+    # print()
+
     # Ask for sender email
     sender_email = input("Enter sender email address (sender@gmail.com): ")
     print()
@@ -50,6 +52,9 @@ def gen_text(args, avg_mse):
     text += 'Kindly download and open the attached HTML file to review the performance of the model.'
     return text
 
+
+def gen_html(fig, f):
+    plotly.io.write_html(fig, f'{f}')
 # Function that sends and email
 def send_email(text, sender, receiver, sender_password, f):
     message = MIMEMultipart()
@@ -77,7 +82,7 @@ def send_email(text, sender, receiver, sender_password, f):
 # Function that call send_email function, it also creates an html file that saves to your current repository
 def send2email(args, fig, avg_mse, sender, receiver, sender_password, f):
     print('Generated .html file was saved to your current repository!')
-    plotly.io.write_html(fig, f'{f}')
+    gen_html(fig, f)
     text = gen_text(args, avg_mse)
     send_email(text, sender, receiver, sender_password, f)
 

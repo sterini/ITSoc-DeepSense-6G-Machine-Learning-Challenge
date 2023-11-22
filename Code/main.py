@@ -1,3 +1,4 @@
+import numpy as np
 import argparse
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"  # Select the GPU index
@@ -20,6 +21,7 @@ parser.add_argument('--GPS', type=str2bool, default=True, help='GPS')
 parser.add_argument('--CAMERAS', type=str2bool, default=True, help='CAMERAS')
 parser.add_argument('--RADAR', type=str2bool, default=True, help='RADAR')
 parser.add_argument('--USE_PRESET', type=str2bool, default=False, help='USE_PRESET')
+parser.add_argument('--f', type=str, default='task1.html', help='Html file of a plot')
 
 # Training arguments
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
@@ -37,7 +39,7 @@ args = parser.parse_args()
 
 def main(args):
     if args.SHARE:
-        f, sender, receiver, sender_password = get_user_input()
+        sender, receiver, sender_password = get_user_input()
     # Task 1
     if args.TASK == 'task1':
         train_losses,val_losses,avg_mse = task1_train(args)
@@ -56,25 +58,13 @@ def main(args):
     fig = gen_plot(args, train_losses, val_losses)
     
     if args.SHARE:
-        #try:
-        send2email(args, fig, avg_mse, sender, receiver, sender_password, f)
-        '''
-        except:
-            print('Email was not sent!\nPossible error could be:')
-            print('\t-You have typed a wrong email!')
-            print('\t-You have typed a wrong password!')
-            print('NOTE! That the password that should be used is not your standard email account password!')
-            print('Visit this link to learn more about password:\nquick steps --> https://ibb.co/ScCY1Kn\nif you want to learn more --> https://medium.com/@manavshrivastava/how-to-send-emails-using-python-c89b802e0b05')
-            sys.exit(0)
-            '''
+        send2email(args, fig, avg_mse, sender, receiver, sender_password, args.f)
     else:
-        print(f'Average MSE: {avg_mse}')
-        
-        fig.show()
+        gen_html(fig, args.f)
 
-        np.save('Produced/train_loss.npy', train_losses)
-        np.save('Produced/val_loss.npy', val_losses)
-        print('numpy array losses were saved to your current directory')
+    np.save(f'Results/train_loss_{args.f.split(".")[0]}.npy', train_losses)
+    np.save(f'Results/val_loss_{args.f.split(".")[0]}.npy', val_losses)
+    print('numpy array losses were saved to your current directory')
 
 if __name__ == '__main__':
     main(args)
