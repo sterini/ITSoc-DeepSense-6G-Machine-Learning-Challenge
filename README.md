@@ -52,8 +52,8 @@ parser.add_argument('--SHARE', type=str2bool, default=False, help='Do you want t
 ```
 
 # Push-to-Repo
-- Make sure to save all your pre-trained models into a folder "models"
-- Make sure to save all your produced results into a folder "Results"
+- Make sure to save all your pre-trained models into a folder "models" (default program setting)
+- Make sure to save all your produced results into a folder "Results" (default program setting)
 - Install Git LFS, because models vary in size and might be very heavy we implement Git LFS
     - https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
     - https://git-lfs.com/
