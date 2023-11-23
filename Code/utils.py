@@ -54,7 +54,8 @@ def gen_text(args, avg_mse):
 
 
 def gen_html(fig, f):
-    plotly.io.write_html(fig, f'{f}')
+    plotly.io.write_html(fig, f'Results/{f}')
+
 # Function that sends and email
 def send_email(text, sender, receiver, sender_password, f):
     message = MIMEMultipart()
@@ -62,7 +63,7 @@ def send_email(text, sender, receiver, sender_password, f):
     message["To"] = receiver
     message["Subject"] = "Model Pefromance Plot"
     
-    attachment = MIMEApplication(open(f, "rb").read(), _subtype="html")
+    attachment = MIMEApplication(open(f'Results/{f}', "rb").read(), _subtype="html")
     attachment.add_header("Content-Disposition", f"attachment; filename={f}")
     
     message.attach(attachment)

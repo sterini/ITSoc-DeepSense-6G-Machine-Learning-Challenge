@@ -42,6 +42,7 @@ class task1decoder(nn.Module):
                 nn.init.constant_(m.bias, 0)
     
     def forward(self, gps, radar, left, center, right, onoffdict):
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         bs = gps.size(0)
         # Process GPS position
         if onoffdict['GPS']:
@@ -228,6 +229,7 @@ class task2Decoder(nn.Module):
          
     
     def forward(self, Hencoded, gps, radar, left, center, right, onoffdict):
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         bs = Hencoded.size(0)
         
         # Process GPS position
@@ -427,6 +429,7 @@ class task3Decoder(nn.Module):
         self.sigmoid = nn.Sigmoid()
     
     def forward(self, Hencoded, input_autoregressive_features, gps, radar, left, center, right, onoffdict):
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         bs = Hencoded.size(0)
         out_tminus1=input_autoregressive_features[:,0,:].view(bs,-1)
         out_tminus2=input_autoregressive_features[:,1,:].view(bs,-1)
