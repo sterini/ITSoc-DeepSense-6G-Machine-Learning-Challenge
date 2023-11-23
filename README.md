@@ -19,11 +19,11 @@
 - run a code using
    1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in the section **Possible Errors**
    2. e.g: `python main.py --TASK task1 --f task1.html --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
-   3. e.g: `make -f MakeFile TASK=task1 f=task1.html GPS=False CAMERAS=True RADAR=False SHARE=False USE_PRESET=False lr=0.001 nu
-m_epochs=2 patience=15 reduction=8 expansion=20 batch_size=200 accumulation_steps=20`
+   3. e.g: `python main.py --TASK task1 --f shtest.html --GPS False --CAMERAS True --RADAR False --SHARE False --USE_PRESET some_value --lr 0.001 --num_epochs 10 --patience 5 --reduction 0.5 --expansion 2 --batch_size 32 --accumulation_steps 4`
+   4. e.g: `gitpush.sh` will push Results and models to github repo
 
 - For option number ii. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
-- For option number iii. You will train a model exclusively using Images. Model Performance will be recorded, and the model itself will be saved. In addition, MakeFile will push Results and models to github repo.
+- For option number iii. You will train a model exclusively using Images. Model Performance will be recorded, and the model itself will be saved.
 
 - Other available arguments:
 ```
