@@ -1,3 +1,8 @@
+# Content
+- How-to
+- Push-to-Repo
+- Possible Errors
+
 # How-to
 - Link to download a dataset: https://ieee-dataport.org/competitions/deepverse-6g-machine-learning-challenge
 
@@ -9,13 +14,16 @@
 
 - Note! You should install **PYTORCH** on your own. Visit this link: https://pytorch.org/get-started/locally/
 
-- run a code using
-   1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in section **Possible Errors**
-   2. e.g: `run_main.sh`
-   3. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
-   4. e.g: `python main.py --TASK task2 --GPS True --CAMERAS False --RADAR False --SHARE False --num_epochs 2 --f task2.html`
+- Note! You should install git lfs https://git-lfs.com/
 
-- For option number iii. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
+- run a code using
+   1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in the section **Possible Errors**
+   2. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
+   3. e.g: `make -f MakeFile TASK=task1 f=mytest.html GPS=False CAMERAS=True RADAR=False SHARE=False USE_PRESET=False lr=0.001 nu
+m_epochs=2 patience=15 reduction=8 expansion=20 batch_size=200 accumulation_steps=20`
+
+- For option number ii. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
+- For option number iii. You will train a model exclusively using Images. Model Performance will be recorded, and the model itself will be saved. In addition, MakeFile will push Results and models to github repo.
 
 - Other available arguments:
 ```
@@ -42,7 +50,7 @@ parser.add_argument('--accumulation_steps', type=int, default=20, help='accumula
 parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to share results via email [True\False]')
 ```
 
-# Push Results
+# Push-to-Repo
 - Make sure to save all your pre-trained models into a folder "models"
 - Make sure to save all your produced results into a folder "Results"
 - Install Git LFS, because models vary in size and might be very heavy we implement Git LFS
