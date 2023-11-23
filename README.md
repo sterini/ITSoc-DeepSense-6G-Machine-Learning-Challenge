@@ -13,7 +13,7 @@
    1. If you want to share results via email. First and foremost, learn how to generate a Gmail account password in section **Possible Errors**
    2. e.g: `run_main.sh`
    3. e.g: `python main.py --TASK task1 --GPS True --CAMERAS False --RADAR False --SHARE True --num_epochs 5`
-   4. e.g: python main.py --TASK task2 --GPS True --CAMERAS False --RADAR False --SHARE False --num_epochs 2 --f task2.html
+   4. e.g: `python main.py --TASK task2 --GPS True --CAMERAS False --RADAR False --SHARE False --num_epochs 2 --f task2.html`
 
 - For option number iii. You will train a model exclusively using GPS data and receive the performance metrics via email. Follow the steps prompted by the program, including filling in your email address and other required information.
 
