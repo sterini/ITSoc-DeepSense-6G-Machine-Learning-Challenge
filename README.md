@@ -57,7 +57,8 @@ parser.add_argument('--SHARE', type=str2bool, default=False, help='Do you want t
 - Install Git LFS, because models vary in size and might be very heavy we implement Git LFS
     - https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage
     - https://git-lfs.com/
-- After you successfully installed Git LFS, run `gitpush.sh`, it will push both "models" and "Results" folders into a github repo :)
+- After you successfully installed Git LFS, run `make -f MakeFile TASK=task1 f=task1.html GPS=False CAMERAS=True RADAR=False SHARE=False USE_PRESET=False lr=0.001 nu
+m_epochs=2 patience=15 reduction=8 expansion=20 batch_size=200 accumulation_steps=20`
 
 # Possible Errors
 ### The email sending encountered an issue, and potential errors include:
