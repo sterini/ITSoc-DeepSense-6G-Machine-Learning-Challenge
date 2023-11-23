@@ -1,0 +1,25 @@
+.PHONY: all run_and_git
+
+all: run_and_git
+
+run_and_git:
+	@echo "Running main.py..."
+	python main.py --TASK $(TASK) --f $(f) --GPS $(GPS) --CAMERAS $(CAMERAS) --RADAR $(RADAR) --SHARE $(SHARE) \
+	    --USE_PRESET $(USE_PRESET) --lr $(lr) --num_epochs $(num_epochs) --patience $(patience) \
+	    --reduction $(reduction) --expansion $(expansion) --batch_size $(batch_size) \
+	    --accumulation_steps $(accumulation_steps)
+
+	@echo "Tracking models and Results with Git LFS..."
+	git lfs track models
+	git lfs track Results
+
+	@echo "Adding models and Results to Git..."
+	git add models
+	git add Results
+
+	@echo "Committing changes to Git..."
+	git commit -m "Adding models/Results"
+
+	@echo "Pushing changes to Git..."
+	git push
+
