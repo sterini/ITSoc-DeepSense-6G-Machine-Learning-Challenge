@@ -32,10 +32,11 @@ parser = argparse.ArgumentParser(description='Deepverse Challenge', formatter_cl
 
 # Task specific arguments
 parser.add_argument('--TASK',type=str, default='task1', help='task name')
-parser.add_argument('--GPS', type=bool, default=True, help='GPS')
-parser.add_argument('--CAMERAS', type=bool, default=True, help='CAMERAS')
-parser.add_argument('--RADAR', type=bool, default=True, help='RADAR')
-parser.add_argument('--USE_PRESET', type=bool, default=False, help='USE_PRESET')
+parser.add_argument('--GPS', type=str2bool, default=True, help='GPS')
+parser.add_argument('--CAMERAS', type=str2bool, default=True, help='CAMERAS')
+parser.add_argument('--RADAR', type=str2bool, default=True, help='RADAR')
+parser.add_argument('--USE_PRESET', type=str2bool, default=False, help='USE_PRESET')
+parser.add_argument('--f', type=str, default='task1.html', help='Html file of a plot')
 
 # Training arguments
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
@@ -47,7 +48,7 @@ parser.add_argument('--batch_size', type=int, default=200, help='batch size')
 parser.add_argument('--accumulation_steps', type=int, default=20, help='accumulation steps')
 
 # Arguments related to sharing via email
-parser.add_argument('--SHARE', type=bool, default=False, help='Do you want to share results via email [True\False]')
+parser.add_argument('--SHARE', type=str2bool, default=False, help='Do you want to share results via email [True/False]')
 ```
 
 # Push-to-Repo
