@@ -36,7 +36,7 @@ def get_user_input():
     # Ask for sender password
     sender_password = input("Enter sender email password (secrete): ")
     print('\n')
-    return file_name, sender_email, receiver_email, sender_password
+    return sender_email, receiver_email, sender_password
 
 def gen_text(args, avg_mse):
     data = ""
