@@ -2,8 +2,10 @@ radar/
 RGB_images/
 wireless/
 Figures/
+Logs/
 dataset_train.csv
 dataset_validation.csv
+dataset_test.csv
 *.md
 *.md~
 *.un~

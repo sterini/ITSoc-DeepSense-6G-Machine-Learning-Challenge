@@ -17,7 +17,7 @@ def str2bool(x):
         return True
     if x == 'false':
         return False
-    raise typeError('Wrong input!')
+    raise TypeError('Wrong input!')
 
 # Get user input
 def get_user_input():

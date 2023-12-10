@@ -1,0 +1,8 @@
+nohup: ignoring input
+usage: main.py [-h] [--TASK TASK] [--GPS GPS] [--CAMERAS CAMERAS]
+               [--RADAR RADAR] [--USE_PRESET USE_PRESET] [--f F] [--lr LR]
+               [--num_epochs NUM_EPOCHS] [--patience PATIENCE]
+               [--reduction REDUCTION] [--expansion EXPANSION]
+               [--batch_size BATCH_SIZE]
+               [--accumulation_steps ACCUMULATION_STEPS] [--SHARE SHARE]
+main.py: error: unrecognized arguments: 2
